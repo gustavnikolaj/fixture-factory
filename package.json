@@ -2,7 +2,7 @@
   "name": "fixture-factory",
   "version": "0.0.0",
   "description": "",
-  "main": "",
+  "main": "lib/fixture-factory.js",
   "directories": {
     "lib": "lib"
   },
