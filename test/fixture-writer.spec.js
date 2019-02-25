@@ -36,3 +36,15 @@ it("should write a copy of a fixture/test2", async () => {
 
   expect(writtenSpec, "to equal", fixtureTest1Spec);
 });
+
+it("should write a copy of a fixture/test2", async () => {
+  const fixtureTest1Path = path.resolve(__dirname, "../fixtures/test3");
+  const fixtureTest1Spec = await fixtureReader(fixtureTest1Path);
+
+  const fixtureDir = path.resolve(fixtureRootDir, "fixture-test3");
+  await fixtureWriter(fixtureTest1Spec, fixtureDir);
+
+  const writtenSpec = await fixtureReader(fixtureDir);
+
+  expect(writtenSpec, "to equal", fixtureTest1Spec);
+});

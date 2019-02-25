@@ -24,3 +24,17 @@ it("should read a fixture with a folder into a FixtureSpec object", async () => 
     baz: "bazbaz\n"
   });
 });
+
+it.only("should read a symlink", async () => {
+  const fixturePath = path.resolve(__dirname, "../fixtures/test3");
+  const spec = await fixtureReader(fixturePath);
+
+  expect(spec, "to equal", {
+    qux: {
+      foo: "foofoo\n",
+      bar: "barbar\n",
+      baaaz: { __symbolicLink: "../baz" }
+    },
+    baz: "bazbaz\n"
+  });
+});
